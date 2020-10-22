@@ -1,5 +1,6 @@
 import boto3
 import logging
+import json
 import logging.config
 import requests
 import config
@@ -47,6 +48,6 @@ while(True):
                 config.ENTITY_ID,
                 config.SUPERVISOR_API,
                 config.SUPERVISOR_TOKEN,
-                message.body
+                json.loads(message.body)
             )
         message.delete()
