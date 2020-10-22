@@ -1,4 +1,5 @@
 import requests
+import logging
 
 def update_entity(entity_id, url, token, data):
     response = requests.post(
@@ -14,6 +15,8 @@ def update_entity(entity_id, url, token, data):
     )
 
     if response.status_code == 200:
-        return response.json()
+        logging.info(response.json())
+        return True
     
-    return response.content
+    logging.error(response.content)
+    return False

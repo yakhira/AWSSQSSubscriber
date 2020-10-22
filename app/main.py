@@ -44,7 +44,7 @@ while(True):
 
     for message in messages:
         if message.body:
-            result = entity.update_entity(
+            entity.update_entity(
                 config.ENTITY_ID,
                 config.SUPERVISOR_API,
                 config.SUPERVISOR_TOKEN,
