@@ -1,14 +1,14 @@
 import requests
 
-def update_entity(enity_id, url, token, data):
+def update_entity(entity_id, url, token, data):
     response = requests.post(
-        f'{url}/states/{enity_id}',
+        f'{url}/states/{entity_id}',
         headers={
             'Content-Type': 'application/json',
             'Authorization': f'Bearer {token}'
         },
         json={
-            'state': 'new smessage',
+            'state': 'received',
             'attributes': data
         }
     )

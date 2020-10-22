@@ -42,7 +42,6 @@ while(True):
     )
 
     for message in messages:
-        print(message)
         if message.body:
             result = entity.update_entity(
                 config.ENTITY_ID,
@@ -50,5 +49,4 @@ while(True):
                 config.SUPERVISOR_TOKEN,
                 message.body
             )
-            print(message.body)
         message.delete()
