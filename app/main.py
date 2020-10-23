@@ -5,7 +5,8 @@ import logging.config
 import requests
 import config
 
-from utils import entity
+from utils import entity, mqtt
+
 
 logging.basicConfig(level=logging.INFO)
 logging.getLogger('urllib3.util.retry').setLevel(logging.ERROR)
@@ -44,10 +45,18 @@ while(True):
 
     for message in messages:
         if message.body:
+            message_body = json.loads(message.body)
             entity.update_entity(
                 config.ENTITY_ID,
                 config.SUPERVISOR_API,
                 config.SUPERVISOR_TOKEN,
-                json.loads(message.body)
+                message_body
             )
+            if config.MQTT_ENABLED:
+                mqtt.mqtt_publish(
+                    config.MQTT_HOST,
+                    config.MQTT_USER,
+                    config.MQTT_PASSWORD,
+                    message_body
+                )
         message.delete()
