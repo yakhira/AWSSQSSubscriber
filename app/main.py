@@ -52,11 +52,10 @@ while(True):
                 config.SUPERVISOR_TOKEN,
                 message_body
             )
-            if config.MQTT_ENABLED:
+            if config.MQTT_TOPIC:
                 mqtt.mqtt_publish(
                     config.MQTT_HOST,
-                    config.MQTT_USER,
-                    config.MQTT_PASSWORD,
+                    config.MQTT_TOPIC,
                     message_body
                 )
         message.delete()
