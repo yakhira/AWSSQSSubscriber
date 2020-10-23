@@ -9,7 +9,7 @@
     "homeassistant_api": true,
     "hassio_api": true,
     "hassio_role": "default",
-    "discovery": ["mqtt"],
+    "services": ["mqtt:need"],
     "options": {
       "sqs_queue": "",
       "aws_access_key": "",
