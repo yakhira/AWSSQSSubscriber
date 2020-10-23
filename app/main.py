@@ -55,6 +55,8 @@ while(True):
             if config.MQTT_TOPIC:
                 mqtt.mqtt_publish(
                     config.MQTT_HOST,
+                    config.MQTT_USER,
+                    config.MQTT_PASSWORD,
                     config.MQTT_TOPIC,
                     message_body
                 )
