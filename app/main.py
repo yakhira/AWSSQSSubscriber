@@ -53,7 +53,7 @@ while(True):
                     config.SUPERVISOR_TOKEN,
                     message_body
                 )
-            if config.MQTT_TOPIC:
+            if config.MQTT_ENABLE:
                 mqtt.mqtt_publish(
                     config.MQTT_HOST,
                     config.MQTT_USER,
