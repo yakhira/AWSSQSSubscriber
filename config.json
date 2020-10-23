@@ -23,6 +23,6 @@
       "aws_secret_key": "str",
       "aws_region": "str",
       "entity_id": "str",
-      "mqtt_topic": ""
+      "mqtt_topic": "str"
     }
   }
