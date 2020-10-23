@@ -12,6 +12,6 @@ def mqtt_publish(host, user, password, topic, message):
         client.username_pw_set(user, password)
         client.connect(host)
 
-    logging.info(client.publish(topic, message))
+    client.publish(topic, message)
     
     return client

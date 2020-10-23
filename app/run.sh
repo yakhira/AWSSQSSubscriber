@@ -13,5 +13,9 @@ export MQTT_TOPIC=$(jq --raw-output ".mqtt_topic" $CONFIG_PATH)
 export MQTT_HOST=$(jq --raw-output ".mqtt_host" $CONFIG_PATH)
 export MQTT_USER=$(jq --raw-output ".mqtt_user" $CONFIG_PATH)
 export MQTT_PASSWORD=$(jq --raw-output ".mqtt_passowrd" $CONFIG_PATH)
+export MQTT_HOST_D=$(bashio::services mqtt "host")
+export MQTT_USER_D=$(bashio::services mqtt "username")
+export MQTT_PASSWORD_D=$(bashio::services mqtt "password")
 
+echo $MQTT_HOST_D
 exec /usr/bin/python3 $APPDIR/main.py
