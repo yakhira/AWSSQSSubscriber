@@ -45,13 +45,12 @@ while(True):
 
     for message in messages:
         if message.body:
-            message_body = json.loads(message.body)
             if config.ENTITY_ID:
                 entity.update_entity(
                     config.ENTITY_ID,
                     config.SUPERVISOR_API,
                     config.SUPERVISOR_TOKEN,
-                    message_body
+                    json.loads(message.body)
                 )
             if config.MQTT_ENABLE:
                 mqtt.mqtt_publish(
@@ -59,6 +58,6 @@ while(True):
                     config.MQTT_USER,
                     config.MQTT_PASSWORD,
                     config.MQTT_TOPIC,
-                    message_body
+                    message.body
                 )
         message.delete()
