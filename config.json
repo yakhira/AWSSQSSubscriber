@@ -15,7 +15,7 @@
       "aws_secret_key": "",
       "aws_region": "us-west-2",
       "entity_id": "sqs.message_body",
-      "mqtt_topic": ""
+      "mqtt_topic": false
     },
     "schema": {
       "sqs_queue": "str",
