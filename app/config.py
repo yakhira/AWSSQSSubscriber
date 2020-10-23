@@ -12,6 +12,6 @@ AWS_SECRET_KEY = os.getenv('AWS_SECRET_KEY')
 ENTITY_ID = os.getenv('ENTITY_ID', 'sqs.message_body')
 
 MQTT_TOPIC = os.getenv('MQTT_TOPIC')
-MQTT_HOST = os.getenv('MQTT_HOST', 'core-mosquitto')
+MQTT_HOST = os.getenv('MQTT_HOST')
 MQTT_USER = os.getenv('MQTT_USER')
 MQTT_PASSWORD = os.getenv('MQTT_PASSWORD')
