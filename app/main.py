@@ -46,12 +46,13 @@ while(True):
     for message in messages:
         if message.body:
             message_body = json.loads(message.body)
-            entity.update_entity(
-                config.ENTITY_ID,
-                config.SUPERVISOR_API,
-                config.SUPERVISOR_TOKEN,
-                message_body
-            )
+            if config.ENTITY_ID:
+                entity.update_entity(
+                    config.ENTITY_ID,
+                    config.SUPERVISOR_API,
+                    config.SUPERVISOR_TOKEN,
+                    message_body
+                )
             if config.MQTT_TOPIC:
                 mqtt.mqtt_publish(
                     config.MQTT_HOST,
