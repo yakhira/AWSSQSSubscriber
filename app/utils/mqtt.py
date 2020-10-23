@@ -10,6 +10,6 @@ def mqtt_publish(host, user, password, topic, message):
         client = mqtt.Client("ha-client")
         client.username_pw_set(user, password)
         client.connect(host)
-    client.publish(topic, message)
+    logging.info(client.publish(topic, message))
     
     return client
