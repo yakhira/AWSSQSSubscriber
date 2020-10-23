@@ -11,7 +11,7 @@ COPY app/ $APPDIR/
 
 WORKDIR $WORKDIR
 
-RUN apk add --no-cache py3-pip mosquitto-clients; \
+RUN apk add --no-cache py3-pip; \
     pip install --no-cache-dir -r $APPDIR/requirements.txt; \
     addgroup $GROUP; \
     adduser -H -D -s /bin/sh -G $USER -h $WORKDIR $USER; \
