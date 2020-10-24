@@ -13,6 +13,7 @@ def mqtt_publish(host, user, password, topic, message):
         client.enable_logger(logging.getLogger(__name__))
         client.connect(host)
 
-    client.publish(topic, message)
+    if client.publish(topic, message):
+        logging.info(f'Published topic {topic}.')
 
     return client
