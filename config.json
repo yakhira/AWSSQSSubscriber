@@ -16,9 +16,6 @@
       "aws_secret_key": "",
       "aws_region": "us-west-2",
       "entity_id": "sqs.message_body",
-      "mqtt_host": "core-mosquitto",
-      "mqtt_user": "",
-      "mqtt_password": "",
       "mqtt_topic": ""
     },
     "schema": {
@@ -27,9 +24,6 @@
       "aws_secret_key": "str",
       "aws_region": "str",
       "entity_id": "str",
-      "mqtt_host": "str",
-      "mqtt_user": "str",
-      "mqtt_password": "str",
       "mqtt_topic": "str"
     }
   }
