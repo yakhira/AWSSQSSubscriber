@@ -4,6 +4,8 @@ import paho.mqtt.publish as publish
 
 client = False
 
+mqtt.enable_logger(logging.getLogger(__name__))
+
 def mqtt_publish(host, topic, message):
     global client
 
