@@ -44,8 +44,13 @@ while(True):
     )
 
     for message in messages:
+        try:
+            message_body = json.loads(message.body)
+        except ValueError as e:
+            message_body = message.body
+
         message_data = {
-            'body': message.body,
+            'body': message_body,
             'attributes': message.attributes
         }
         if message_data['body'] or message_data['attributes']:
