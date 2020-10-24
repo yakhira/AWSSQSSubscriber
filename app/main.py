@@ -54,7 +54,7 @@ while(True):
                     config.ENTITY_ID,
                     config.SUPERVISOR_API,
                     config.SUPERVISOR_TOKEN,
-                    json.loads(message.body)
+                    message_body
                 )
             if config.MQTT_ENABLE:
                 mqtt.mqtt_publish(
@@ -62,6 +62,6 @@ while(True):
                     config.MQTT_USER,
                     config.MQTT_PASS,
                     config.MQTT_TOPIC,
-                    message.body
+                    json.dumps(message_body)
                 )
         message.delete()
