@@ -13,5 +13,7 @@ ENTITY_ID = os.getenv('ENTITY_ID', 'sqs.message_body')
 
 MQTT_TOPIC = os.getenv('MQTT_TOPIC')
 MQTT_HOST = os.getenv('MQTT_HOST')
+MQTT_USER = os.getenv('MQTT_USER')
+MQTT_PASS = os.getenv('MQTT_PASSWORD')
 
-MQTT_ENABLE = True if MQTT_TOPIC and MQTT_HOST else False
+MQTT_ENABLE = True if MQTT_TOPIC and MQTT_HOST and MQTT_USER and MQTT_PASS else False
