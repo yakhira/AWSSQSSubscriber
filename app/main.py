@@ -44,17 +44,17 @@ while(True):
     )
 
     for message in messages:
-        message_body = {
+        message_data = {
             'body': message.body,
             'attributes': message.attributes
         }
-        if message_body['body'] or message_body['attributes']:
+        if message_data['body'] or message_data['attributes']:
             if config.ENTITY_ID:
                 entity.update_entity(
                     config.ENTITY_ID,
                     config.SUPERVISOR_API,
                     config.SUPERVISOR_TOKEN,
-                    message_body
+                    message_data
                 )
             if config.MQTT_ENABLE:
                 mqtt.mqtt_publish(
@@ -62,6 +62,6 @@ while(True):
                     config.MQTT_USER,
                     config.MQTT_PASS,
                     config.MQTT_TOPIC,
-                    json.dumps(message_body)
+                    json.dumps(message_data)
                 )
         message.delete()
