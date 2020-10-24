@@ -51,9 +51,9 @@ while(True):
 
         message_data = {
             'body': message_body,
-            'attributes': message.attributes
+            'message_attributes': message.message_attributes
         }
-        if message_data['body'] or message_data['attributes']:
+        if message_data['body'] or message_data['message_attributes']:
             if config.ENTITY_ID:
                 entity.update_entity(
                     config.ENTITY_ID,
