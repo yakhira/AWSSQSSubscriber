@@ -44,7 +44,11 @@ while(True):
     )
 
     for message in messages:
-        if message.body:
+        message_body = {
+            'body': message.body,
+            'attributes': message.attributes
+        }
+        if message_body['body'] or message_body['attributes']:
             if config.ENTITY_ID:
                 entity.update_entity(
                     config.ENTITY_ID,
