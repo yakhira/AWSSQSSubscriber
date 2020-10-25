@@ -8,7 +8,7 @@ def mqtt_publish(host, user, password, topic, message):
     global client
 
     if not client:
-        client = mqtt.Client("ha-client")
+        client = mqtt.Client()
         client.username_pw_set(user, password)
         client.enable_logger(logging.getLogger(__name__))
         client.connect(host)
