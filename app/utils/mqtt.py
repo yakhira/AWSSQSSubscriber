@@ -27,8 +27,4 @@ def mqtt_publish(host, user, password, topic, message):
         },
         keepalive=120
     )
-def on_publish(client, userdata, mid):
-    if len(userdata) == 0:
-        client.disconnect()
-    else:
-        _do_publish(client)
+    logging.info(f'Published topic {topic}.')
