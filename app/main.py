@@ -5,8 +5,8 @@ import logging.config
 import requests
 import config
 
+from botocore.config import Config
 from utils import entity, mqtt
-
 
 logging.basicConfig(level=logging.INFO)
 logging.getLogger('urllib3.util.retry').setLevel(logging.ERROR)
@@ -25,10 +25,15 @@ client = boto3.resource(
     region_name=config.AWS_REGION,
     aws_access_key_id=config.AWS_ACCESS_KEY,
     aws_secret_access_key=config.AWS_SECRET_KEY,
+    config=Config(
+        retries = {
+            'max_attempts': 10,
+            'mode': 'standard'
+        }
+    )
 )
 
 queue = client.Queue(config.SQS_QUEUE)
-
 
 while(True):
     messages = queue.receive_messages(
