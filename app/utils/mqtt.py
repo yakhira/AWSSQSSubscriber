@@ -17,13 +17,14 @@ def mqtt_publish(host, user, password, topic, message):
     #     logging.info(f'Published topic {topic}.')
 
     # return client
-    publish.single(
-        topic,
-        message,
-        hostname=host,
-        auth={
-            'username': user,
-            'password': password
-        },
-        keepalive=120
-    )
+    if publish.single(
+            topic,
+            message,
+            hostname=host,
+            auth={
+                'username': user,
+                'password': password
+            },
+            keepalive=120
+        ):
+        logging.info(f'Published topic {topic}.')
