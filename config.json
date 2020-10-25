@@ -15,7 +15,7 @@
       "aws_access_key": "",
       "aws_secret_key": "",
       "aws_region": "us-west-2",
-      "entity_id": "sqs.message_body",
+      "entity_id": "sqs.message",
       "mqtt_topic": ""
     },
     "schema": {
