@@ -14,4 +14,4 @@ export MQTT_HOST=$(bashio::services mqtt "host")
 export MQTT_USER=$(bashio::services mqtt "username")
 export MQTT_PASSWORD=$(bashio::services mqtt "password")
 
-exec /usr/bin/python3 $APPDIR/main.py
+exec /usr/bin/python3 /app/main.py
