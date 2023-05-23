@@ -1,11 +1,11 @@
 {
     "name": "AWS SQS Subscriber",
-    "version": "0.1",
+    "version": "0.3",
     "slug": "aws_sqs_subscriber",
     "description": "Subscribe to AWS SQS messages!",
     "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
-    "startup": "before",
     "boot": "auto",
+    "init": false,
     "homeassistant_api": true,
     "hassio_api": true,
     "hassio_role": "default",
@@ -16,7 +16,7 @@
       "aws_secret_key": "",
       "aws_region": "us-west-2",
       "entity_id": "sqs.message",
-      "mqtt_topic": ""
+      "mqtt_topic": "aws/sqs/message"
     },
     "schema": {
       "sqs_queue": "str",
