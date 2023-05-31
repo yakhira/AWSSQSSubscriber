@@ -58,8 +58,11 @@ while(True):
             'body': message_body,
             'message_attributes': message.message_attributes
         }
+        print(f"INFO: {message_data}")
+
         if message_data['body'] or message_data['message_attributes']:
             if config.ENTITY_ID:
+                print(f"INFO: Update entity {config.ENTITY_ID}")
                 entity.update_entity(
                     config.ENTITY_ID,
                     config.SUPERVISOR_API,
@@ -67,6 +70,7 @@ while(True):
                     message_data
                 )
             if config.MQTT_ENABLE:
+                print(f"INFO: Push to mqtt topic {config.MQTT_TOPIC}")
                 mqtt.mqtt_publish(
                     config.MQTT_HOST,
                     config.MQTT_USER,
