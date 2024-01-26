@@ -12,6 +12,8 @@ COPY app/ $APPDIR/
 WORKDIR $WORKDIR
 
 RUN apk add --no-cache py3-pip; \
+    python3 -m venv $APPDIR/venv; \
+    . $APPDIR/venv/bin/activate; \
     pip install --no-cache-dir -r $APPDIR/requirements.txt; \
     addgroup $GROUP; \
     adduser -H -D -s /bin/sh -G $USER -h $WORKDIR $USER; \
